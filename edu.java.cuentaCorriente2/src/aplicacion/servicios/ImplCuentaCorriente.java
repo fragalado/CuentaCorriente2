@@ -61,8 +61,11 @@ public class ImplCuentaCorriente implements InterfazCuentaCorriente{
 		
 		// Una vez que tenemos el objeto que contiene el dni del usuario
 		// Mostramos los datos
-		System.out.println("DNI: " + cuentaUsuario.getDni() + "; Nombre Titular: " + cuentaUsuario.getNombreTitular() 
-								+ "; Saldo: " + cuentaUsuario.getSaldo());
+		if(cuentaUsuario ==null)
+			System.err.println("** No existe ninguna cuenta con el DNI introducido **");
+		else
+			System.out.println("DNI: " + cuentaUsuario.getDni() + "; Nombre Titular: " + cuentaUsuario.getNombreTitular() 
+			+ "; Saldo: " + cuentaUsuario.getSaldo());
 	}
 	
 	// Sacar dinero
@@ -103,7 +106,7 @@ public class ImplCuentaCorriente implements InterfazCuentaCorriente{
 		String dniUsuario = sc4.next();
 		
 		// Ahora buscamos el dni del usuario en nuestra base de datos y nos quedamos con el objeto que lo contiene
-		CuentaCorriente res = new CuentaCorriente();
+		CuentaCorriente res = null;
 		for (CuentaCorriente aux : listaBD) {
 			if(aux.getDni().equals(dniUsuario)) {
 				res = aux;

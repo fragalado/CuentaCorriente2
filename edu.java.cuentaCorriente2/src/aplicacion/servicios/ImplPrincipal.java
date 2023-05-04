@@ -11,7 +11,7 @@ public class ImplPrincipal implements InterfazPrincipal {
 	
 	// Menu
 	@Override
-	public int Menu() {
+	public int Menu(){
 		// Scanner
 		Scanner entrada = new Scanner(System.in);
 		// Imprimimos por pantalla las opciones
